@@ -1,0 +1,44 @@
+<div class="row pt-5">
+    <div class="col-md-5 mx-auto">
+
+        <div class="card rounded-0">
+
+            <div class="card-header">
+                <h3 class="mb-0 float-left">Notification Details</h3>
+                <div class="div float-right"> 
+                    <button (click)="navigateNotify()" type="submit" class="btn btn-primary button-sm">Create</button>
+                </div>
+            </div>
+            <div class="card-body">
+
+                
+                <div>
+                    <table class="table table-sm table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Pincode</th>
+                                <th>Email</th>
+                                <th>Age Group</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let notification of notifications">
+                                <td>{{notification.pincode}}</td>
+                                <td>{{notification.email}}</td>
+                                <td>{{notification.ageGroup}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+
+
+    </div>
+
+</div>

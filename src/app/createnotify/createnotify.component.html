@@ -1,0 +1,66 @@
+<div class="row pt-5">
+    <div class="col-md-5 mx-auto">
+
+        <div class="card rounded-0">
+
+            <div class="card-header">
+                <h3 class="mb-0">Notification Register</h3>
+            </div>
+            <div class="card-body">
+                <div fxLayout="column" *ngIf="alert" class="alert alert-warning alert-dismissible fade show"
+                    role="alert" style="text-align: center;align-items: center;">
+                    <strong>Success!!</strong> Added successfully.
+                    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="form" #notificationForm="ngForm" (ngSubmit)="onSubmit();notificationForm.reset()">
+
+                    <div *ngIf="email.errors?.required && email.touched ">
+                        <small style="color: brown;" class="help-block">Email required *</small>
+                    </div>
+                    <div *ngIf="email.errors && email.errors.email">
+                        <small style="color: brown;" class="help-block">Email invalid *</small>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" required email class="form-control rounded-0" placeholder="email"
+                            [class.has-error]="email.touched" [class.has-success]="email.valid" required name="email"
+                            #email="ngModel" [(ngModel)]="notificationModel.email">
+                    </div>
+
+                    <div *ngIf="pincode.invalid && pincode.touched">
+                        <small style="color: brown;" class="error">Pincode required *</small>
+                    </div>
+
+                    <div class="form-group">
+                        <input required type="text" class="form-control rounded-0" placeholder="pincode" required
+                            name="pincode" #pincode="ngModel" [(ngModel)]="notificationModel.pincode">
+                    </div>
+
+                    <div *ngIf=" ageGroupHasError && ageGroup.invalid && ageGroup.touched">
+                        <small style="color: brown;" class="error">Age Group required *</small>
+                    </div>
+
+                    <div class="form-group">
+                        <select required (blue)="validateAgeGroup(ageGroup.value)"
+                            (change)="validateAgeGroup(ageGroup.value)" class="custom-select" name="ageGroup"
+                            #ageGroup="ngModel" [(ngModel)]="notificationModel.ageGroup">
+                            <option value="0" disabled>Select Age Group</option>
+                            <option value="18">18+</option>
+                            <option value="40">40-44</option>
+                            <option value="45">45+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <a class="nav-link float-left" routerLink="/home" routerLinkActive="active">Home</a>
+                        <button [disabled]="notificationForm.form.invalid || ageGroupHasError " type="submit" class="btn btn-primary float-right">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

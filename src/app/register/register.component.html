@@ -1,0 +1,65 @@
+<div class="row pt-5">
+    <div class="col-md-5 mx-auto">
+
+        <div class="card rounded-0">
+
+            <div class="card-header">
+                <h3 class="mb-0">Register </h3>
+            </div>
+            <div class="card-body">
+
+                <div fxLayout="column" *ngIf="error" class="alert alert-warning alert-dismissible fade show"
+                    role="error" style="text-align: center;align-items: center;color:crimson;">
+                    <strong style="width: 300px;">Failed!!</strong> Registration failed.
+                    <button (click)="closeError()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form class="form" #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit();userForm.reset()">
+
+                    <div *ngIf="email.errors?.required && email.touched ">
+                        <small style="color: brown;" class="help-block">Email required *</small>
+                    </div>
+                    <div *ngIf="email.errors && email.errors.email">
+                        <small style="color: brown;" class="help-block">Email invalid </small>
+                    </div>
+                    <div class="form-group">
+                        <input required email type="email" class="form-control rounded-0" placeholder="email" required
+                            name="email" #email="ngModel" [(ngModel)]="userModel.email"
+                            [class.has-error]="email.touched" [class.has-success]="email.valid">
+                    </div>
+
+                    <div *ngIf="password.invalid && password.touched">
+                        <small style="color: brown;" class="error">Password required </small>
+                    </div>
+
+                    <div class="form-group">
+                        <input required type="password" class="form-control rounded-0" placeholder="password" required
+                            name="password" #password="ngModel" [(ngModel)]="userModel.password">
+                    </div>
+
+                    <div *ngIf="cpassword.errors?.pattern && cpassword.touched">
+                        <small style="color: brown;" class="error">Password does not match</small>
+                    </div>
+
+                    <div class="form-group">
+                        <input required type="password" class="form-control rounded-0" pattern="{{userModel.password}}"
+                            placeholder="confirm password" required name="confirmpassword" #cpassword="ngModel"
+                            [(ngModel)]="confirmpassword">
+                    </div>
+
+
+                    <div class="form-group">
+                        <button [disabled]="userForm.form.invalid" type="submit"
+                            class="btn btn-primary float-right">Register</button>
+
+                        <a class="nav-link float-left" routerLink="/login" routerLinkActive="active">Login</a>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
