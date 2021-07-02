@@ -1,7 +1,7 @@
 <div class="row pt-5">
     <div class="col-md-5 mx-auto">
 
-        <div class="card rounded-0">
+        <div class="card rounded-1">
 
             <div class="card-header">
                 <h3 class="mb-0">Register </h3>
@@ -25,7 +25,7 @@
                         <small style="color: brown;" class="help-block">Email invalid </small>
                     </div>
                     <div class="form-group">
-                        <input required email type="email" class="form-control rounded-0" placeholder="email" required
+                        <input required email type="email" class="form-control rounded-1" placeholder="email" required
                             name="email" #email="ngModel" [(ngModel)]="userModel.email"
                             [class.has-error]="email.touched" [class.has-success]="email.valid">
                     </div>
@@ -34,8 +34,8 @@
                         <small style="color: brown;" class="error">Password required </small>
                     </div>
 
-                    <div class="form-group">
-                        <input required type="password" class="form-control rounded-0" placeholder="password" required
+                    <div class="form-group mt-2">
+                        <input required type="password" class="form-control rounded-1" placeholder="password" required
                             name="password" #password="ngModel" [(ngModel)]="userModel.password">
                     </div>
 
@@ -43,18 +43,18 @@
                         <small style="color: brown;" class="error">Password does not match</small>
                     </div>
 
-                    <div class="form-group">
-                        <input required type="password" class="form-control rounded-0" pattern="{{userModel.password}}"
+                    <div class="form-group mt-2">
+                        <input required type="password" class="form-control rounded-1" pattern="{{userModel.password}}"
                             placeholder="confirm password" required name="confirmpassword" #cpassword="ngModel"
                             [(ngModel)]="confirmpassword">
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <button [disabled]="userForm.form.invalid" type="submit"
-                            class="btn btn-primary float-right">Register</button>
+                            class="btn btn-primary float-end">Register</button>
 
-                        <a class="nav-link float-left" routerLink="/login" routerLinkActive="active">Login</a>
+                        <a class="nav-link float-start" routerLink="/login" routerLinkActive="active">Login</a>
                     </div>
                 </form>
             </div>
