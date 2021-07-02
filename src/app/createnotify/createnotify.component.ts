@@ -12,10 +12,11 @@ import { Router } from '@angular/router';
 export class CreatenotifyComponent implements OnInit {
   notificationModel = new Notification()
   alert: boolean = false
-  ageGroupHasError: boolean = false
+  ageGroupHasError: boolean = true
   constructor(private cookieService: CookieService, private notifyService: NotificationService, private router: Router) { }
 
   ngOnInit(): void {
+    this.ageGroupHasError= true
   }
 
   onSubmit() {
@@ -40,10 +41,10 @@ export class CreatenotifyComponent implements OnInit {
   validateAgeGroup(value: number) {
 
     if (value == 0) {
-
+console.log("zero ")
       this.ageGroupHasError = true;
     } else {
-
+      console.log("not zero ")
       this.ageGroupHasError = false;
     }
 

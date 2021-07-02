@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class RestService {
 
   //readonly APIURL = "http://www.vaccinationnotification.online:8081/api"; 
-  readonly APIURL = "http://127.0.0.1:8081/api";
+  // readonly APIURL = "http://127.0.0.1:8081/api";
+  readonly APIURL = environment.hostURL
   constructor(private httpClient: HttpClient) { }
 
   post(model: any, path: String) {
