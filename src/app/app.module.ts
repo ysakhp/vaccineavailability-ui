@@ -14,6 +14,8 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
 import { UserService } from './service/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { CreatenotifyComponent } from './createnotify/createnotify.component';
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { GenerateOtpComponent } from './generate-otp/generate-otp.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CreatenotifyComponent } from './createnotify/createnotify.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CreatenotifyComponent
+    CreatenotifyComponent,
+    PasswordresetComponent,
+    GenerateOtpComponent
   ],
   imports: [
     BrowserModule,

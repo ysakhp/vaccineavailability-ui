@@ -22,7 +22,7 @@
                     <div *ngIf="email.errors && email.errors.email">
                         <small style="color: brown;" class="help-block">Email invalid *</small>
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-3">
                         <input type="email" required email class="form-control rounded-1" placeholder="email"
                             [class.has-error]="email.touched" [class.has-success]="email.valid" required name="email"
                             #email="ngModel" [(ngModel)]="notificationModel.email">
@@ -32,7 +32,7 @@
                         <small style="color: brown;" class="error">Pincode required *</small>
                     </div>
 
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-3">
                         <input required type="text" class="form-control rounded-1" placeholder="pincode" required
                             name="pincode" #pincode="ngModel" [(ngModel)]="notificationModel.pincode">
                     </div>
@@ -41,7 +41,7 @@
                         <small style="color: brown;" class="error">Age Group required *</small>
                     </div>
 
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-3">
                         <select required 
                             (change)="validateAgeGroup(ageGroup.value)" class="form-select" name="ageGroup"
                             #ageGroup="ngModel" [(ngModel)]="notificationModel.ageGroup" >

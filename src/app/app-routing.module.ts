@@ -5,6 +5,8 @@ import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { GenerateOtpComponent } from './generate-otp/generate-otp.component';
 
 const routes: Routes = [
   {
@@ -30,7 +32,16 @@ const routes: Routes = [
     path : 'createnotify',
     component : CreatenotifyComponent,
     canActivate : [AuthGuard]
+  },
+  {
+    path : 'resetpassword',
+    component : PasswordresetComponent
+  },
+  {
+    path : 'generateotp',
+    component : GenerateOtpComponent
   }
+  
 
 
 

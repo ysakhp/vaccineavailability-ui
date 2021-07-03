@@ -47,4 +47,14 @@ export class UserService {
     return this.alert
   }
 
+  sendMail(emailAddress: String){
+    // qry : String ='emailAddress/'+emailAddress
+    console.log("Email sending "+emailAddress)
+    return this.restService.post(emailAddress,'/users/otp')
+  }
+
+  resetPassword(user: User){
+    console.log("user service ")
+    return this.restService.post(user,'/users/resetpassword')
+  }
 }

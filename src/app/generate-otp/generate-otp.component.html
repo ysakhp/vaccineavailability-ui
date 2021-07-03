@@ -1,0 +1,58 @@
+<div class="row pt-5">
+    <div class="col-md-5 mx-auto">
+
+        <div class="card rounded-4">
+
+            <div class="card-header">
+                <h3 class="mb-0">Generate OTP</h3>
+            </div>
+            <div class="card-body">
+
+                <!-- <div fxLayout="column" *ngIf="alert" class="alert alert-warning alert-dismissible fade show"
+                    role="alert" style="text-align: center;align-items: center;">
+                    <strong style="width: 300px;">Success!!</strong> Registered successfully.
+                    <button (click)="closeAlert()" type="button" class="btn-close" data-dismiss="alert"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div> -->
+
+                <div fxLayout="column" *ngIf="error" class="alert alert-warning alert-dismissible fade show"
+                    role="error" style="text-align: center;align-items: center;color:crimson;">
+                    <strong style="width: 300px;">Failed!!</strong> OTP Generation Failed.
+                    <button (click)="closeError()" type="button" class="btn-close" data-dismiss="alert"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div *ngIf="email.errors?.required && email.touched ">
+                    <small style="color: brown;" class="help-block">Email required *</small>
+                </div>
+                <div *ngIf="email.errors && email.errors.email">
+                    <small style="color: brown;" class="help-block">Email invalid </small>
+                </div>
+
+                <form class="form" #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit();userForm.reset()">
+
+
+
+                    <div class="form-group mt-2">
+                        <input required type="email" email class="form-control rounded-1" placeholder="email" required
+                            name="emailAddress" #email="ngModel" [(ngModel)]="emailAddress" [class.has-error]="email.touched"
+                            [class.has-success]="email.valid">
+                    </div>
+
+
+                    <div class="form-group mt-5">
+                        <a class="nav-link float-start" routerLink="/login" routerLinkActive="active">Login</a>
+                        <button [disabled]="userForm.form.invalid" type="submit" class="btn btn-primary float-end">Send Mail</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
