@@ -11,7 +11,7 @@ import { GenerateOtpComponent } from './generate-otp/generate-otp.component';
 const routes: Routes = [
   {
     path : '',
-    redirectTo : '/login',
+    redirectTo : '/home',
     pathMatch : 'full'
   },
   {
